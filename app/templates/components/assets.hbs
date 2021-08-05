@@ -1,3 +1,6 @@
 <div class="container">
   <Aside  @assetTypes={{this.assetTypes}} @onchange={{this.onchange}}/>
+  {{#each this.list as |rentalUnit|}}
+    {{log rentalUnit}}
+  {{/each}}
 </div>
