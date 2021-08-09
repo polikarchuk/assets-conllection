@@ -1,6 +1,3 @@
 import Component from '@glimmer/component';
 
-export default class Card extends Component {
-
-}
-
+export default class Card extends Component {}

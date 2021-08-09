@@ -1,6 +1,15 @@
-<div class="container">
-  <Aside  @assetTypes={{this.assetTypes}} @onchange={{this.onchange}}/>
-  {{#each this.list as |rentalUnit|}}
-    {{log rentalUnit}}
-  {{/each}}
+{{log @model.assetTypes}}
+<div class="container container--assets-list">
+  <Aside  @assetTypes={{@model.assetTypes}} @onchange={{@onchange}}/>
+  <div class="list-card">
+    <Ui::Card />
+    <Ui::Card />
+    <Ui::Card />
+    <Ui::Card />
+    <Ui::Card />
+    <Ui::Card />
+    <Ui::Card />
+    <Ui::Card />
+
+  </div>
 </div>

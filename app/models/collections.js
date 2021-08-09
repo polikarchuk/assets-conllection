@@ -1,10 +1,10 @@
-import DS from 'ember-data';
+import Model, {attr} from '@ember-data/model';
 
-export default DS.Model.extend({
-  title: DS.attr(),
-  owner: DS.attr(),
-  city: DS.attr(),
-  type: DS.attr(),
-  image: DS.attr(),
-  bedrooms: DS.attr()
-});
+export default class Collections extends Model {
+  @attr('number') id;
+  @attr('number') type;
+  @attr('string') title;
+  @attr('number') usedTotalCount;
+  @attr('utc') createdAt;
+  @attr('string') previewImage;
+}
