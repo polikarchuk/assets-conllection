@@ -1,7 +1,7 @@
-export default function (/* server */) {
-  /*
-    Seed your development database using your factories.
-    This api will not be loaded in your tests.
-  */
-  // server.createList('post', 10);
+import products from "../fixtures/product";
+
+export default function (server) {
+  server.db.loadData({
+    products
+  });
 }

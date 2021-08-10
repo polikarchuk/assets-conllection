@@ -12,13 +12,13 @@ export default Route.extend({
 
   async model() {
     let assetTypes = this.assetTypes;
-    let assetList = this.store.findAll('collections');
+    let assetList = this.store.findAll('product');
 
     return { assetTypes, assetList };
   },
 
   @action
   onchange(e) {
-    return this.store.findAll('collections');
+    return this.store.findAll('product');
   },
 });
