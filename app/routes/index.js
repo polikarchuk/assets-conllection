@@ -1,8 +1,9 @@
 import Route from '@ember/routing/route';
 import constants from '../const/constants';
-import { action } from '@ember/object';
 
-export default class inswx extends Route {
+export default class Index extends Route {
+
+
   get assetTypes() {
     const assetTypesItems = constants.asset_types;
     return Object.keys(assetTypesItems).map((key) => {
@@ -12,14 +13,7 @@ export default class inswx extends Route {
 
   async model() {
     let assetTypes = this.assetTypes;
-    let assetList = this.store.findAll('product');
-    console.log(assetList)
-
+    let assetList = (await this.store.findAll('product')).toArray().slice(0, 50);
     return { assetTypes, assetList };
-  }
-
-  @action
-  onchange(e) {
-    return this.store.findAll('product');
   }
 }

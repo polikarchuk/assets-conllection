@@ -1,10 +1,17 @@
 <div class="card">
-  <img src="./assets/images/photo.jpg" alt="" class="card__img">
+  <div>
+    {{#if @previewImage}}
+      <img src={{@previewImage}} alt="" class="card__img">
+    {{else}}
+      <img src="./assets/images/photo.jpg" alt="" class="card__img">
+    {{/if}}
+  </div>
   <div class="card__content">
     <h3 class="title title--margin-xs">
-      {{svg-jar '#Template' width="12" height="14"}}
-      Digestzen Flash Sale
+      {{svg-jar (concat '#' this.isTitleIcon) class="flag" width="14px" height="12px"}}
+      {{@title}}
     </h3>
+    {{@tag}}
     <span class="card__description">Flash Sale! 5% off DigestZen®...</span>
   </div>
 </div>

@@ -1,15 +1,14 @@
-{{log @model.assetTypes}}
 <div class="container container--assets-list">
-  <Aside  @assetTypes={{@model.assetTypes}} @onchange={{@onchange}}/>
+  <Aside  @assetTypes={{@model.assetTypes}}/>
+{{log sortAssetList}}
   <div class="list-card">
-    <Ui::Card />
-    <Ui::Card />
-    <Ui::Card />
-    <Ui::Card />
-    <Ui::Card />
-    <Ui::Card />
-    <Ui::Card />
-    <Ui::Card />
-
+    {{#each sortAssetList as |item|}}
+      <Ui::Card
+        @previewImage={{item.previewImage}}
+        @title={{item.title}}
+        @type={{item.type}}
+        @tag={{item.tag}}
+      />
+    {{/each}}
   </div>
 </div>

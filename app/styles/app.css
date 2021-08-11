@@ -186,12 +186,12 @@ img {
 }
 .card__img{
   margin-bottom: 16px;
-
-
-}
-.card__img img{
+  max-width: 216px;
   border-radius: 3px 3px 0 0;
+
+
 }
+
 .card{
   background: #fff;
   border-radius: 4px;

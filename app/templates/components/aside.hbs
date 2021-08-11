@@ -4,7 +4,7 @@
     {{#each @assetTypes as |item| }}
       <li class="aside__item item--{{item.type}}">
         <input type="checkbox" checked={{model.isAdmin}}
-               onchange={{(fn @onchange item.type)}}>
+              >
         {{svg-jar (concat '#' item.value)}}
         {{item.value}}
       </li>
