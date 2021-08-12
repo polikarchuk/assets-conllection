@@ -1,13 +1,18 @@
 <div class="container container--assets-list">
-  <Aside  @assetTypes={{@model.assetTypes}}/>
-{{log sortAssetList}}
+  <Aside  @assetTypes={{@model.assetTypes}} @onchange={{this.onchange}}/>
   <div class="list-card">
-    {{#each sortAssetList as |item|}}
+    {{#each sortAssetList as |item index|}}
       <Ui::Card
+        @index={{index}}
         @previewImage={{item.previewImage}}
         @title={{item.title}}
         @type={{item.type}}
-        @tag={{item.tag}}
+        @tags={{item.tags}}
+        @usedTotal={{item.usedTotalCount}}
+        @saveItem={{isSaveItem}}
+        @isCheckedItem={{isCheckedItem}}
+        @originalFileSrc={{item.originalFileSrc}}
+        @externalLink={{item.externalLink}}
       />
     {{/each}}
   </div>

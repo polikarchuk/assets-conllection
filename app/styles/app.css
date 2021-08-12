@@ -115,14 +115,17 @@ img {
 }
 .title--margin-xs{
   margin-bottom: 12px;
+  text-transform: capitalize;
 }
 
 .aside{
+  max-width: 296px;
+  width: 100%;
+}
+.aside-content{
   background: #fff;
   border-radius: 4px;
   padding: 20px 16px;
-  max-width: 296px;
-  width: 100%;
 }
 .aside__item{
   display: flex;
@@ -184,24 +187,132 @@ img {
   grid-row-gap: 24px;
   max-width: 936px;
 }
-.card__img{
+
+.card__wrapper-img{
+  position: relative;
   margin-bottom: 16px;
+  min-height: 205px;
+}
+.card__img{
   max-width: 216px;
+  min-height: 216px;
+  height: 100%;
   border-radius: 3px 3px 0 0;
-
-
 }
 
 .card{
   background: #fff;
   border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.card:hover .used-total{
+  opacity: 1;
+  z-index: 2;
 }
 
 .card__content{
   padding: 0 15px;
+
 }
 
+.card__tags{
+  margin-bottom: 8px;
+  font-size: 10px;
+}
+.card__tags-item{
+  background: #F4F5F7;
+  border-radius: 3px;
+  margin-right: 4px;
+  padding: 2px 4px;
+}
+.card__tags-count{
+  padding: 2px 4px;
+  border-radius: 3px;
+  border: 1px solid #F4F5F7;
+}
 .card__description{
-  padding-bottom:  16px;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+.card__footer{
+  padding: 10px 16px;
+  border-top: 1px solid #F4F5F7;
+  display: flex;
+  font-size: 10px;
+
+}
+.card__footer-icon{
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  background: #E4E7ED;
+  text-align: center;
+  line-height: 24px;
+  margin-right: 8px;
+}
+.external-link-name{
+  color: #575757;
+}
+.external-link{
+  color: #999999;
+  display: block;
+}
+
+.used-total{
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 4px 4px 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.bookmark{
+  text-align: right;
+  padding: 16px;
+}
+.used-total__footer{
+  color: #fff;
+  padding: 0 16px 13px;
+}
+.used-number{
+  font-size: 16px;
+  font-weight: 900;
+}
+.used--description{
+  margin-bottom: 8px;
   display: inline-block;
 }
+
+.bth{
+  font-size: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #fff;
+  border-radius: 4px;
+  padding: 9px;
+  display: inline-block;
+  min-width: 184px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.bth--blue{
+  background: #4797FF;
+}
+
+.bth--white{
+  background: transparent;
+  border: 1px solid #fff;
+}
+
+

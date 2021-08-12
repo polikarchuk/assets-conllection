@@ -1,17 +1,56 @@
 <div class="card">
-  <div>
+  <div class="card__wrapper-img">
     {{#if @previewImage}}
       <img src={{@previewImage}} alt="" class="card__img">
     {{else}}
       <img src="./assets/images/photo.jpg" alt="" class="card__img">
     {{/if}}
+    <div class="used-total">
+      <span class="bookmark" {{on 'click' (fn @saveItem @index)}}>
+        {{#if @isCheckedItem}}
+          {{svg-jar '#bookmark-color'  width="24px" height="24px"}}
+          {{else}}
+          {{svg-jar '#bookmark'  width="24px" height="24px"}}
+        {{/if}}
+      </span>
+      <div class="used-total__footer">
+        <h5 class="used-number">{{@usedTotal}}</h5>
+        <span class="used--description">Used (total)</span>
+        {{#if (and (eq @type 3) @originalFileSrc)}}
+          <a href="{{@originalFileSrc}}" class="bth bth--white" target="_blank">Download</a>
+          {{else}}
+          <span class="bth bth--blue">Use</span>
+        {{/if}}
+      </div>
+    </div>
   </div>
   <div class="card__content">
     <h3 class="title title--margin-xs">
-      {{svg-jar (concat '#' this.isTitleIcon) class="flag" width="14px" height="12px"}}
-      {{@title}}
+      {{svg-jar (concat '#' this.isTitleIcon)  width="14px" height="12px"}}
+      {{{truncate-text @title limit=18}}}
     </h3>
-    {{@tag}}
-    <span class="card__description">Flash Sale! 5% off DigestZen®...</span>
+    {{#if formatTags.firstsTags}}
+      <div class="card__tags">
+        {{#each formatTags.firstsTags as |item|}}
+          <span class="card__tags-item">{{item}}</span>
+        {{/each}}
+        {{#if (not-eq formatTags.countTags 0)}}
+          <span class="card__tags-count">+{{formatTags.countTags}}</span>
+        {{/if}}
+      </div>
+    {{/if}}
+    <span class="card__description">{{{truncate-text 'Flash Sale! 5% off DigestZen®' limit=28}}}</span>
   </div>
+  {{#if @externalLink}}
+    <div class="card__footer">
+    <span class="card__footer-icon">
+      {{svg-jar '#Article'  width="11px" height="11px"}}
+    </span>
+     <div class="card__footer-content">
+        <span class="external-link-name">{{@externalLink.title}}</span>
+        <a href="{{@externalLink.href}}" class="external-link">{{@externalLink.href}}</a>
+     </div>
+    </div>
+  {{/if}}
+
 </div>

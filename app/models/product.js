@@ -9,4 +9,5 @@ export default class Product extends Model {
   @attr('string') previewImage;
   @attr('string') originalFileSrc;
   @attr() externalLink;
+  @attr() tags;
 }
