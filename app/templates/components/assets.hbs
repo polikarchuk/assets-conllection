@@ -1,5 +1,5 @@
 <div class="container container--assets-list">
-  <Aside  @assetTypes={{@model.assetTypes}} @onchange={{this.onchange}}/>
+  <Aside  @assetTypes={{@model.assetTypes}} @onChange={{this.onchange}}/>
   <div class="list-card">
     {{#each sortAssetList as |item index|}}
       <Ui::Card
@@ -13,6 +13,7 @@
         @isCheckedItem={{isCheckedItem}}
         @originalFileSrc={{item.originalFileSrc}}
         @externalLink={{item.externalLink}}
+        @controlUseButton={{this.controlUseButton}}
       />
     {{/each}}
   </div>

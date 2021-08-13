@@ -3,7 +3,8 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class Card extends Component {
-  @tracked showToggleablePopover=false;
+  @tracked showToggleablePopover = false;
+
   get isTitleIcon() {
     if (this.args.type === 0) {
       return 'Template';
@@ -28,12 +29,8 @@ export default class Card extends Component {
     };
   }
 
-
   @action
-  togglePopover(){
+  togglePopover() {
     this.showToggleablePopover = true;
   }
-
-
-
 }

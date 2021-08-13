@@ -2,12 +2,11 @@
   <div class="aside-content">
     <h3 class="title title--margin-xs">Assets type</h3>
     <ul class="aside__list">
-      {{#each @assetTypes as |item| }}
-        {{item.usedTotalCount}}
+      {{#each this.assetTypes as |item| }}
         <li class="aside__item item--{{item.type}}">
           <input type="checkbox" data-type={{item.type}}
-                 onchange={{@onchange}}
-                 checked={{true}}
+                 onchange={{fn this.filterChanged item}}
+                 checked={{item.isChecked}}
           >
           {{svg-jar (concat '#' item.value)}}
           {{item.value}}

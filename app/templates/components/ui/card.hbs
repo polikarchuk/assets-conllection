@@ -7,11 +7,7 @@
     {{/if}}
     <div class="used-total">
       <span class="bookmark" {{on 'click' (fn @saveItem @index)}}>
-        {{#if @isCheckedItem}}
-          {{svg-jar '#bookmark-color'  width="24px" height="24px"}}
-          {{else}}
-          {{svg-jar '#bookmark'  width="24px" height="24px"}}
-        {{/if}}
+        {{svg-jar '#bookmark'  width="24px" height="24px"}}
       </span>
       <div class="used-total__footer">
         <h5 class="used-number">{{@usedTotal}}</h5>
@@ -19,7 +15,7 @@
         {{#if (and (eq @type 3) @originalFileSrc)}}
           <a href="{{@originalFileSrc}}" class="bth bth--white" target="_blank">Download</a>
           {{else}}
-          <span class="bth bth--blue">Use</span>
+          <span {{on 'click' @controlUseButton}} class="bth bth--blue">Use</span>
         {{/if}}
       </div>
     </div>
@@ -35,11 +31,16 @@
           <span class="card__tags-item">{{item}}</span>
         {{/each}}
         {{#if (not-eq formatTags.countTags 0)}}
-          <span class="card__tags-count">+{{formatTags.countTags}}</span>
+          <span class="card__tags-count" {{on 'click' this.togglePopover}}>+{{formatTags.countTags}}</span>
         {{/if}}
+        <EmberPopover @isShown={{this.showToggleablePopover}} @event="none">
+          {{#each formatTags.lastsTags as |item|}}
+            <span class="card__tags-item">{{item}}</span>
+          {{/each}}
+        </EmberPopover>
       </div>
     {{/if}}
-    <span class="card__description">{{{truncate-text 'Flash Sale! 5% off DigestZen®' limit=28}}}</span>
+    <span class="card__description">{{truncate-text 'Flash Sale! 5% off DigestZen®' limit=28}}</span>
   </div>
   {{#if @externalLink}}
     <div class="card__footer">

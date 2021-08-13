@@ -20,21 +20,21 @@ export default class Assets extends Component {
   sortAssetList;
 
   @action
-  onchange(e) {
-    let type = Number(e.target.dataset.type);
-    if (e.target.checked) {
-      this.assetList = [
-        ...this.assetList,
-        ...this.args.model.assetList.filter((el) => el.type === type),
-      ];
-    } else {
-      this.assetList = this.assetList.filter((el) => el.type !== type);
-    }
+  onchange(checkedList) {
+    checkedList || (checkedList = []);
+    this.assetList = this.args.model.assetList.filter((el) =>
+      checkedList.includes(el.type)
+    );
   }
 
   @action
-  isSaveItem(e){
+  isSaveItem(e) {
     this.savedItems.push(this.sortAssetList[e]);
     this.isCheckedItem = true;
+  }
+
+  @action
+  controlUseButton() {
+    console.log('click button');
   }
 }
