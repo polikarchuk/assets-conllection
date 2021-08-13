@@ -133,6 +133,9 @@ img {
   padding: 10px 0;
   color: #575757;
 }
+.aside__item input{
+  margin-right: 10px;
+}
 .aside__item svg {
   width: 12px;
   height: 11px;
